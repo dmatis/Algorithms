@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.lang.Math;
 
 public class MergeSort {
 
@@ -16,6 +15,11 @@ public class MergeSort {
 
         MergeSort ms = new MergeSort();
         ms.sort(inputArray);
+
+        /*
+        Why does inputArray contain the same values as ms.array after sort operation
+        It appears that only ms.array values gets updated during sort function
+         */
 
         for(int i:inputArray) {
             System.out.print(i + " ");
@@ -50,6 +54,7 @@ public class MergeSort {
         int i = lower;
         int j = middle + 1;
         int k = lower;
+        // comparison occurs here, the lesser of i and j goes into final array slot
         while (i <= middle && j <= upper) {
             if (tempArray[i] <= tempArray[j]) {
                 array[k] = tempArray[i];

@@ -6,8 +6,8 @@ import java.util.stream.IntStream;
 public class ListPerformance {
     /** Test variables **/
     private final static int WARMUP = 1000;
-    private final static int RUNS = 100;
-    private final static int SIZE = 10000;
+    private final static int RUNS = 1000;
+    private final static int SIZE = 100000;
 
     public ListPerformance() {
         perfWarmup();
@@ -15,11 +15,19 @@ public class ListPerformance {
     }
 
     private void perfTest() {
-        long linkedListTime = buildLinkedList(SIZE);
-        System.out.println("The LinkedList performance time is: " + linkedListTime);
-        long arrayListTime = buildArrayList(SIZE);
-        System.out.println("The ArrayList performance time is: " + arrayListTime);
-        String winner = computeWinner(linkedListTime, arrayListTime);
+        long linkedListSum = 0;
+        for (int i = 0; i < RUNS; i++) {
+            linkedListSum += buildLinkedList(SIZE);
+        }
+        System.out.println("The LinkedList performance time is: " + (linkedListSum / RUNS));
+
+        long arrayListSum = 0;
+        for (int i = 0; i < RUNS; i++) {
+            arrayListSum += buildArrayList(SIZE);
+        }
+        System.out.println("The ArrayList performance time is: " + (arrayListSum / RUNS));
+
+        String winner = computeWinner(linkedListSum, arrayListSum);
         System.out.println("The faster data structure for adding " + SIZE + " elements is: " + winner);
     }
 

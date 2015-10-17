@@ -14,6 +14,14 @@ public class RotateMatrix {
 
     // Rotates a matrix of size n clockwise
     public static void rotate(int[][] matrix, int n) {
+        if (n == 0) {
+            throw new IllegalArgumentException("Must provide a matrix of size n >= 1");
+        }
+
+        if (n == 1) {
+            return;
+        }
+
         for (int layer = 0; layer < n/2; layer++) {
             int first = layer;
             int last = n - layer - 1;

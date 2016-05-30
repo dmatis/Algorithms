@@ -40,15 +40,15 @@ public class BreadthFirstTree {
         Vertex h = new Vertex(8);
 
         a.addAdjacent(b);
-        a.addAdjacent(d);
         a.addAdjacent(g);
+        a.addAdjacent(d);
 
         b.addAdjacent(e);
-        b.addAdjacent(a);
         b.addAdjacent(f);
+        b.addAdjacent(a);
 
-        c.addAdjacent(f);
         c.addAdjacent(h);
+        c.addAdjacent(f);
 
         d.addAdjacent(a);
         d.addAdjacent(f);

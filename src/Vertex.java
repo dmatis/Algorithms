@@ -3,7 +3,7 @@ import java.util.TreeSet;
 
 public class Vertex implements Comparable<Vertex> {
 
-    int value;
+    Integer value;
     boolean visited = false;
     Set<Vertex> adjVertices;
 
@@ -26,8 +26,8 @@ public class Vertex implements Comparable<Vertex> {
         adjVertices.remove(v);
     }
 
-    @Override
-    public int compareTo(Vertex o) {
-        return (this.value == o.value) ? 0 : 1;
+    public int compareTo(Vertex v) {
+        int vertexCompare = value.compareTo(v.value);
+        return (vertexCompare != 0) ? vertexCompare : 0;
     }
 }
